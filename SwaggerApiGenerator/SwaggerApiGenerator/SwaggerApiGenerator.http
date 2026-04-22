@@ -1,6 +1,11 @@
-@SwaggerApiGenerator_HostAddress = http://localhost:5077
+@SwaggerApiGenerator_HostAddress = https://localhost:5001
 
-GET {{SwaggerApiGenerator_HostAddress}}/weatherforecast/
-Accept: application/json
+### Root
+GET {{SwaggerApiGenerator_HostAddress}}/
 
-###
+### List generated APIs
+GET {{SwaggerApiGenerator_HostAddress}}/api/specifications
+
+### Upload spec with your client or curl because .http files do not send multipart conveniently here.
+### Example runtime call after upload:
+GET {{SwaggerApiGenerator_HostAddress}}/generated/{{apiId}}/items

@@ -1,0 +1,19 @@
+{
+  "ApiId": "api-f40655b17efd489db9b1b169906c8d1f",
+  "Title": "Simple API",
+  "Version": "1.0.0",
+  "Description": "A simple API for testing",
+  "CreatedAtUtc": "2026-04-22T09:46:32.0546381+00:00",
+  "OriginalFileName": "simple-api.json",
+  "StoredSpecificationPath": "D:\\source\\repos\\RestApiCodeGen\\SwaggerApiGenerator\\SwaggerApiGenerator\\GeneratedApis\\api-f40655b17efd489db9b1b169906c8d1f\\spec.json",
+  "operations": [
+    {
+      "OperationId": "get_items",
+      "HttpMethod": "GET",
+      "OriginalPath": "/items",
+      "RuntimePathTemplate": "/generated/api-f40655b17efd489db9b1b169906c8d1f/items",
+      "Summary": "Retrieves a list of items",
+      "Description": null
+    }
+  ]
+}

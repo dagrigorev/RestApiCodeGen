@@ -5,6 +5,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using NSwag;
 using NSwag.CodeGeneration.CSharp;
 using NSwag.CodeGeneration.CSharp.Models;
+using SwaggerApiGenerator.Contracts;
 using System.Reflection;
 
 namespace SwaggerApiGenerator.Controllers
@@ -24,8 +25,10 @@ namespace SwaggerApiGenerator.Controllers
         }
 
         [HttpPost("upload")]
-        public async Task<IActionResult> UploadSwaggerFile(IFormFile file)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Upload([FromForm] UploadSpecificationRequest request)
         {
+            var file = request.File;
             if (file == null || file.Length == 0)
             {
                 return BadRequest("No file uploaded.");
@@ -33,7 +36,7 @@ namespace SwaggerApiGenerator.Controllers
 
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "UploadedFiles", file.FileName);
 
-            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+            DirectoryInfo directoryInfo = Directory.CreateDirectory(path: Path.GetDirectoryName(filePath));
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
